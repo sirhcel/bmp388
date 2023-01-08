@@ -345,6 +345,7 @@ impl<I2C: ehal::blocking::i2c::WriteRead> BMP388<I2C> {
     }
 }
 
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 ///Error
 pub struct Error {
     ///Fatal error
@@ -355,6 +356,7 @@ pub struct Error {
     pub config: bool,
 }
 
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 ///Status
 pub struct Status {
     ///Indicates whether chip is ready for a command
@@ -365,6 +367,7 @@ pub struct Status {
     pub temperature_data_ready: bool,
 }
 
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 /// Interrupt configuration
 pub struct InterruptConfig {
     ///Output mode of interrupt pin
@@ -378,6 +381,7 @@ pub struct InterruptConfig {
 
 }
 
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 ///Output mode for interrupt pin
 pub enum OutputMode {
     ///Push-pull output mode
@@ -386,7 +390,7 @@ pub enum OutputMode {
     OpenDrain = 1,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq)]
 ///Sensor data
 pub struct SensorData {
     ///The measured pressure
@@ -395,7 +399,7 @@ pub struct SensorData {
     pub temperature : f64,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 /// Powercontrol
 pub struct PowerControl {
     ///Pressuresensor enable
@@ -406,7 +410,7 @@ pub struct PowerControl {
     pub mode: PowerMode,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 ///Oversampling Config (OSR)
 pub struct OversamplingConfig {
     ///Pressure oversampling
@@ -415,7 +419,7 @@ pub struct OversamplingConfig {
     pub osr4_t: Oversampling,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 #[allow(non_camel_case_types)]
 /// Standby time in ms
 pub enum SamplingRate {
@@ -457,7 +461,7 @@ pub enum SamplingRate {
     ms65_536 = 0x11,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 #[allow(non_camel_case_types)]
 /// The time constant of IIR filter
 pub enum Filter {
@@ -479,7 +483,7 @@ pub enum Filter {
     c127 = 0b111,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 #[allow(non_camel_case_types)]
 /// Oversampling
 pub enum Oversampling {
@@ -497,7 +501,7 @@ pub enum Oversampling {
     x32 = 0b101,
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 /// PowerMode
 pub enum PowerMode {
     /// Sleep
@@ -509,6 +513,7 @@ pub enum PowerMode {
 }
 
 #[allow(non_camel_case_types)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 enum Register {
     id = 0x00,
     sensor_data = 0x04,
